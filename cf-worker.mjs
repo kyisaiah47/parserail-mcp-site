@@ -19,7 +19,11 @@ function parserailUrl(requestUrl) {
 export default {
   ...handler,
   async fetch(request) {
-    return Response.redirect(parserailUrl(request.url), 308);
+    const destination = parserailUrl(request.url);
+    return new Response(
+      `<a href="https://thecompound.tech">Built by Compound Labs</a>`,
+      { status: 308, headers: { Location: destination, "Content-Type": "text/html; charset=UTF-8" } },
+    );
   },
 };
 
