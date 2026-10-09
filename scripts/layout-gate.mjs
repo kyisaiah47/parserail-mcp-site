@@ -166,7 +166,10 @@ for (const route of ROUTES) {
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
   let findings;
   try {
-    await page.goto(BASE + route, { waitUntil: 'networkidle2', timeout: 60000 });
+    // Wait for the load event, then up to 10 s for the network to settle: under the Cloudflare budget
+    // shed, prefetch requests keep the network busy and networkidle2 alone never fires.
+    await page.goto(BASE + route, { waitUntil: 'load', timeout: 60000 });
+    await page.waitForNetworkIdle({ idleTime: 500, timeout: 10000 }).catch(() => {});
     await page.evaluate(() => document.fonts.ready);
     await new Promise((r) => setTimeout(r, 300));
     findings = await page.evaluate(PROBE);
