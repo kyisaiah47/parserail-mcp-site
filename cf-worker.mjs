@@ -1,4 +1,4 @@
-// Worker entry. compound-core-mcp is now a page on ParseRail, so every path on this host answers 308 with
+// Worker entry. parserail-mcp is now a page on ParseRail, so every path on this host answers 308 with
 // the matching ParseRail page and keeps the query string: the crawl files go to the same file on
 // ParseRail's host, and every other path, static assets included, goes to /docs/mcp, the page for
 // parserail-mcp. assets.run_worker_first in wrangler.jsonc sends asset paths through this handler too.

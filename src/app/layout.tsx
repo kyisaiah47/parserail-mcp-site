@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: PRODUCT.name, applicationCategory: 'DeveloperApplication', publisher: { '@type': 'Organization', '@id': 'https://thecompound.tech/#organization', name: 'Compound Labs', url: 'https://thecompound.tech' } };
-  return <html lang="en" className={mono.variable}><body><Analytics /><SmoothScroll /><SiteViewProvider slug="compound-core-mcp" welcome={<Welcome copy={{
+  return <html lang="en" className={mono.variable}><body><Analytics /><SmoothScroll /><SiteViewProvider slug="parserail-mcp" welcome={<Welcome copy={{
     name: `${PRODUCT.name} MCP`,
     mark: <Mark />,
     eyebrow: 'YOUR AI CLIENT. YOUR DOCUMENTS.',

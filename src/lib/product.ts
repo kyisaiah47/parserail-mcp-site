@@ -1,7 +1,7 @@
 export const PRODUCT = {
   name: 'ParseRail',
   packageName: 'parserail-mcp',
-  slug: 'compound-core-mcp',
+  slug: 'parserail-mcp',
   version: '0.5.7',
   host: 'compound-core-mcp.thecompound.tech',
   repo: 'https://github.com/kyisaiah47/parserail-mcp',

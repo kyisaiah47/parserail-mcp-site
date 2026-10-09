@@ -1,6 +1,6 @@
 /* THE DEPLOY GATE. A deploy that ships nothing must not exit 0.
  *
- * compound-core-mcp is now a page on ParseRail. Every path on this host answers 308 with the matching
+ * parserail-mcp is now a page on ParseRail. Every path on this host answers 308 with the matching
  * ParseRail page, so each route is checked for the status AND the Location it points to. A static
  * asset path is in the list because asset requests reach the redirect only through
  * run_worker_first. The last route carries a query string, because the redirect keeps it.
