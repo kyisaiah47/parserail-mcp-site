@@ -96,6 +96,7 @@ export default function Welcome({ copy }: { copy: WelcomeCopy }) {
           <span className="sv-mark">{copy.mark}</span>
           {copy.name} <small>/ START HERE</small>
         </span>
+        <a href="https://thecompound.tech">Built by Compound Labs</a>
         <button type="button" aria-label="Close welcome" onClick={close} autoFocus>
           ×
         </button>
@@ -159,7 +160,6 @@ export default function Welcome({ copy }: { copy: WelcomeCopy }) {
           />
           Don&rsquo;t open this when I come back
         </label>
-        <a href="https://thecompound.tech">Built by Compound Labs</a>
       </footer>
     </dialog>
   );
