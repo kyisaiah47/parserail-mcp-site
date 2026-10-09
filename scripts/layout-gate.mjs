@@ -170,6 +170,14 @@ for (const route of ROUTES) {
     // shed, prefetch requests keep the network busy and networkidle2 alone never fires.
     await page.goto(BASE + route, { waitUntil: 'load', timeout: 60000 });
     await page.waitForNetworkIdle({ idleTime: 500, timeout: 10000 }).catch(() => {});
+    // A route that redirects to another host has no page of its own here: this Worker 308s to
+    // ParseRail, whose layout is ParseRail's own gate's job. Measuring it would charge ParseRail's
+    // page to this repo.
+    if (new URL(page.url()).host !== new URL(BASE + route).host) {
+      console.log(`  ok    ${route}  redirect-only, no page of its own (lands on ${page.url()})`);
+      await page.close();
+      continue;
+    }
     await page.evaluate(() => document.fonts.ready);
     await new Promise((r) => setTimeout(r, 300));
     findings = await page.evaluate(PROBE);
