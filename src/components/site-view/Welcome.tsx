@@ -159,7 +159,6 @@ export default function Welcome({ copy }: { copy: WelcomeCopy }) {
           />
           Don&rsquo;t open this when I come back
         </label>
-        <a href="https://thecompound.tech">Built by Compound Labs</a>
       </footer>
     </dialog>
   );
